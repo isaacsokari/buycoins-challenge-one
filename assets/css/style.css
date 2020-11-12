@@ -1,0 +1,281 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial,
+    sans-serif, Apple Color Emoji, Segoe UI Emoji;
+  font-size: 14px;
+  line-height: 1.5;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #24292e;
+  color: #ffffffb3;
+  padding: 1rem 2rem;
+  height: 62px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header button {
+  display: none;
+}
+
+header svg {
+  color: white;
+  fill: white;
+}
+
+.github-icon:not(.mobile) {
+  margin-right: 1rem;
+}
+
+.github-icon.mobile {
+  display: none;
+  margin: auto;
+}
+
+.search-and-nav {
+  display: flex;
+  align-items: center;
+  flex: auto;
+  margin-right: 1rem;
+}
+
+form {
+  margin-right: 1rem;
+}
+
+form label {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  height: 30px;
+  padding: 0;
+  font-size: inherit;
+  font-weight: 400;
+  color: #fff;
+  vertical-align: middle;
+  background-color: #24292e;
+  border: 1px solid #444d56;
+  box-shadow: none;
+  border-radius: 6px;
+}
+
+form label input {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0 12px;
+  width: 243px;
+  min-height: 28px;
+  box-shadow: none;
+  border-radius: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: inherit;
+  transition: 0.3s width ease-in-out;
+}
+
+form label input:focus-visible {
+  width: 542px;
+  background-color: #fff;
+  color: #444d56;
+}
+
+form label input:focus-visible ~ img {
+  display: none;
+}
+
+form input::placeholder {
+  color: #d1d5da;
+}
+
+form input:focus-visible::placeholder {
+  color: #4e4e4e;
+}
+
+form label img {
+  margin-right: 8px;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  list-style-type: none;
+  margin-right: 1rem;
+}
+
+nav ul li a {
+  font-weight: 600;
+  color: #fff;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  color: #ffffff70;
+}
+
+.header-item {
+  display: flex;
+  align-items: center;
+}
+
+.header-item:not(:last-of-type) {
+  margin-right: 1rem;
+}
+
+.header-item details {
+  position: relative;
+}
+
+.header-item details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.header-item details summary {
+  display: flex;
+  align-items: center;
+  /* position: fixed; */
+}
+
+.header-item details summary svg {
+  margin-left: 1px;
+}
+
+.header-item details[open] .menu {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 2rem;
+  right: 0px;
+  width: fit-content;
+  padding: 4px 0;
+  margin: 2px 0 0;
+  border: 1px solid #ffffffb3;
+  border-radius: 6px;
+  box-shadow: #ffffffb3;
+}
+
+.dropdown-item {
+  color: #24292e;
+  padding: 4px 8px 4px 16px;
+  display: flex;
+  width: 100%;
+  text-decoration: none;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  color: #fff;
+  background-color: rgb(3, 102, 214);
+}
+
+.avatar {
+  border-radius: 50%;
+}
+
+@media (max-width: 1024.9px) {
+  header {
+    padding: 1rem 1.5rem;
+  }
+
+  form label input {
+    width: 195px;
+  }
+
+  form label input:focus-visible {
+    width: 400px;
+  }
+}
+
+@media (max-width: 767.9px) {
+  header {
+    padding: 1rem;
+  }
+
+  header button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-and-nav {
+    display: none;
+  }
+
+  .search-and-nav.show {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 62px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    padding: 1rem;
+    background-color: inherit;
+  }
+
+  .search-and-nav nav {
+    width: 100%;
+  }
+
+  .search-and-nav form {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .search-and-nav form label input {
+    width: 100%;
+  }
+
+  .search-and-nav.show ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .search-and-nav.show ul li {
+    padding: 8px;
+    height: 37.5px;
+    width: 100%;
+    border-top: 1px solid #444d56;
+    flex: auto;
+  }
+
+  .header-item.lg {
+    display: none;
+  }
+
+  .header-item:not(:last-of-type) {
+    margin-right: 0;
+  }
+
+  .github-icon.mobile {
+    display: block;
+  }
+
+  .github-icon:not(.mobile) {
+    display: none;
+  }
+}
