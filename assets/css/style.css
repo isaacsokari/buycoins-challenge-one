@@ -603,6 +603,47 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+/* start of footer styling */
+footer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid #e1e4e8;
+  padding: 1rem;
+  margin: 2rem 0 0;
+  font-size: 12px;
+}
+
+footer > a {
+  margin: 0 1rem 0 0;
+}
+
+footer > a svg {
+  fill: #d1d5da;
+}
+
+footer ul {
+  list-style-type: none;
+  display: flex;
+  flex: auto;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+}
+
+footer ul li a {
+  color: #0366d6;
+  margin: 0 8px;
+  text-decoration: none;
+}
+
+footer ul li a:hover {
+  text-decoration: underline;
+}
+
+/* end of footer styling */
+
 @media (max-width: 1024.9px) {
   body > header {
     padding: 1rem 1.5rem;
@@ -614,6 +655,16 @@ details > summary::-webkit-details-marker {
 
   header form label input:focus-visible {
     width: 400px;
+  }
+}
+
+@media (max-width: 1011.9px) {
+  footer > a {
+    display: none;
+  }
+
+  footer {
+    justify-content: center;
   }
 }
 
