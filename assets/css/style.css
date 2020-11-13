@@ -414,6 +414,58 @@ nav ul li a:hover {
   font-weight: 400;
 }
 
+.user-details .activity {
+  color: #586069;
+  font-size: 14px;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.user-details .activity a {
+  color: #586069;
+  text-decoration: none;
+  margin: 4px;
+  display: inline-flex;
+  align-items: center;
+}
+.user-details .activity a span {
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.user-details .activity a svg {
+  margin-right: 4px;
+  fill: currentColor;
+  opacity: 70%;
+}
+
+.user-details ul {
+  margin: 1rem 0 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details ul li {
+  display: inline-flex;
+  align-items: center;
+}
+
+.user-details ul svg {
+  fill: currentColor;
+  opacity: 50%;
+  margin-right: 4px;
+}
+
+.user-details ul a {
+  padding: 4px 0;
+  color: #586069;
+  text-decoration: none;
+}
+
 .repos-container {
   width: 100%;
   padding: 0 1rem;
@@ -603,6 +655,10 @@ details > summary::-webkit-details-marker {
   display: none;
 }
 
+.hide {
+  display: none !important;
+}
+
 /* start of footer styling */
 footer {
   display: flex;
@@ -768,6 +824,10 @@ footer ul li a:hover {
 
   .user-details details .status {
     display: flex;
+  }
+
+  .user-details ul {
+    display: none;
   }
 
   /* .user-details .avatar-and-status {

@@ -15,8 +15,7 @@ let query = `{
       totalCount
     }
     bio
-    bioHTML
-    repositories(privacy: PUBLIC, first: 20) {
+    repositories(privacy: PUBLIC, last: 20) {
       edges {
         node {
           name
@@ -40,31 +39,41 @@ let query = `{
           }
           url
           updatedAt
+          description
         }
       }
+      totalCount
     }
     status {
       emojiHTML
       emoji
     }
+    bio
+    createdAt
+    twitterUsername
+    location
+    login
+    starredRepositories {
+      totalCount
+    }
   }
-  viewer {
-    login: "isaacsokari"
-  }
-}`;
+}
+`;
 
-// const url = 'https://api.github.com/graphql';
+const url = 'https://api.github.com/graphql';
+
+const encryptedKey = 'ZjUyZmU0NjNmMDJhMDQyMWQwZmVhZGQ3NjI0ZDVjMmZkNGZkNmZkYw==';
 
 const options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    // Authorization: 'bearer f377bc7b8ad40049823e0f93d76e62cd2de09e44',
+    Authorization: `bearer ${atob(encryptedKey)}`,
   },
   body: JSON.stringify({ query }),
 };
 
 fetch(url, options)
   .then((res) => res.json())
-  .then((data) => console.log(data.data))
+  .then(populateUI)
   .catch(console.error);
