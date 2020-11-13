@@ -11,10 +11,12 @@ body {
   line-height: 1.5;
   width: 100vw;
   max-width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
+  /* max-width: 100%; */
 }
 
-header {
+body > header {
   background-color: #24292e;
   color: #ffffffb3;
   padding: 1rem 2rem;
@@ -24,13 +26,18 @@ header {
   align-items: center;
 }
 
-header button {
+body > header button {
   display: none;
 }
 
-header svg {
+body > header svg {
   color: white;
   fill: white;
+}
+
+.github-icon {
+  display: flex;
+  align-items: center;
 }
 
 .github-icon:not(.mobile) {
@@ -49,11 +56,11 @@ header svg {
   margin-right: 1rem;
 }
 
-form {
+header form {
   margin-right: 1rem;
 }
 
-form label {
+header form label {
   display: flex;
   align-items: center;
   width: 100%;
@@ -70,7 +77,7 @@ form label {
   border-radius: 6px;
 }
 
-form label input {
+header form label input {
   border: none;
   outline: none;
   background-color: transparent;
@@ -86,25 +93,25 @@ form label input {
   transition: 0.3s width ease-in-out;
 }
 
-form label input:focus-visible {
+header form label input:focus-visible {
   width: 542px;
   background-color: #fff;
   color: #444d56;
 }
 
-form label input:focus-visible ~ img {
+header form label input:focus-visible ~ img {
   display: none;
 }
 
-form input::placeholder {
+header form input::placeholder {
   color: #d1d5da;
 }
 
-form input:focus-visible::placeholder {
+header form input:focus-visible::placeholder {
   color: #4e4e4e;
 }
 
-form label img {
+header form label img {
   margin-right: 8px;
 }
 
@@ -167,7 +174,8 @@ nav ul li a:hover {
   margin: 2px 0 0;
   border: 1px solid #ffffffb3;
   border-radius: 6px;
-  box-shadow: #ffffffb3;
+  box-shadow: 0 0 1px 2px #e3e3e4;
+  z-index: 100;
 }
 
 .dropdown-item {
@@ -191,26 +199,325 @@ nav ul li a:hover {
   border-radius: 50%;
 }
 
+.main {
+  width: 100%;
+  height: 100%;
+}
+
+.main header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  max-width: 100%;
+  height: 3rem;
+  margin-top: 1.5rem;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #e1e4e8;
+}
+
+.container header.mobile {
+  display: none;
+}
+
+.container header.mobile nav {
+  margin: 0;
+  overflow-x: auto;
+  position: sticky;
+  top: 0;
+  left: 0;
+}
+
+.main header nav {
+  margin: 0 0 0 30%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  background-color: #fff;
+}
+
+.main header nav a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #24292e;
+  padding: 8px 16px;
+  height: 100%;
+
+  font-size: 14px;
+  line-height: 30px;
+  text-align: center;
+  white-space: nowrap;
+  background-color: initial;
+  border: 0;
+  border-bottom: 2px solid transparent;
+
+  transition: border-bottom-color 0.36s ease-in;
+}
+
+.main header nav a:hover {
+  border-bottom: solid 2px #d1d5da;
+  outline: 1px dotted transparent;
+  outline-offset: -1px;
+}
+
+.main header nav a.active {
+  border-bottom: solid 2px #f9826c;
+  outline: 1px dotted transparent;
+  outline-offset: -1px;
+  font-weight: 600;
+}
+
+.main header nav a svg {
+  margin-right: 4px;
+  vertical-align: text-bottom;
+  display: inline-block;
+  fill: #24292e80;
+}
+
+.main header nav a.active svg {
+  fill: #24292e;
+}
+
+.main header nav a span {
+  margin-left: 0.25rem;
+  border-radius: 30%;
+  background-color: #d1d5da;
+  color: #24292e;
+  font-size: 12px;
+  height: 19.6px;
+  display: inline-block;
+  min-width: 20px;
+  padding: 0 6px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+
+.container {
+  max-width: 1280px;
+  margin: auto;
+  display: flex;
+  padding: 0 1rem;
+}
+
+.user-details {
+  max-width: 312px;
+  padding: 0 16px;
+  margin-top: -32px;
+}
+
+.avatar-and-status {
+  position: relative;
+}
+
+.avatar-and-status .avatar {
+  width: 100%;
+  object-fit: contain;
+  max-width: 280px;
+  background-color: transparent;
+}
+
+.status-container {
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 1px 0 1px rgba(27, 31, 35, 0.04);
+  line-height: 1.25;
+  font-size: 12px;
+  vertical-align: text-bottom;
+
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  /* z-index: 5; */
+  width: 38px;
+  height: 38px;
+  margin-bottom: 32px;
+  /* margin-left: -40px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-details .btn {
+  display: block;
+  background-color: white;
+  width: 100%;
+  margin: 1rem 0 0;
+  font-weight: 500;
+}
+
+.user-details .btn:hover {
+  background-color: #f3f4f6;
+}
+
+.user-details .names-container {
+  padding: 16px 0;
+}
+
+.user-details .fullname {
+  font-size: 26px;
+  line-height: 1.25;
+  overflow: hidden;
+  font-weight: 600;
+}
+
+.user-details .username {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 24px;
+  color: #586069;
+}
+
+.user-details details .status {
+  height: 2rem;
+  padding: 4px 8px;
+  font-size: 12px;
+  font-weight: 400;
+  color: #586069;
+  display: none;
+  align-items: center;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px;
+  margin: 0 0 0.5rem;
+}
+
+.user-details details .status:hover {
+  color: #0366d6;
+}
+
+.user-details details .status:hover svg {
+  fill: currentColor;
+}
+
+.user-details details .status svg {
+  margin-right: 0.5rem;
+  fill: currentColor;
+}
+
+.user-details .bio {
+  color: #24292e;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.repos-container {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+.repos-container .btn {
+  display: flex;
+  align-items: center;
+}
+
+.repos-container .btn svg {
+  fill: currentColor;
+  margin: 0 4px 0;
+}
+
+.repos-container .new-repo svg {
+  margin: 0 4px 0 0;
+}
+
+.search-repos {
+  display: flex;
+  align-items: center;
+  height: 65px;
+  padding: 16px 0;
+}
+
+.search-repos label {
+  flex: auto;
+  margin-right: 1rem;
+}
+
+.search-repos input {
+  height: 2rem;
+  width: 100%;
+  padding: 5px 12px;
+  font-weight: 400;
+  outline: none;
+  border-radius: 6px;
+  margin-right: 1rem;
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: #24292e;
+  vertical-align: middle;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  border: 1px solid #e1e4e8;
+  display: flex;
+}
+
+.search-repos input:focus {
+  border-color: #0366d6;
+  box-shadow: 0 0 0 3px rgba(3, 102, 214, 0.3);
+}
+
+.search-repos details {
+  margin-right: 1rem;
+}
+
+.btn {
+  position: relative;
+  display: inline-block;
+  padding: 5px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px,
+    rgba(255, 255, 255, 0.25) 0px 1px 0px 0px;
+}
+
+.new-repo {
+  background-color: #2ea44f;
+  color: #fff;
+  text-decoration: none;
+}
+
+.new-repo:hover {
+  color: #d1d5da;
+}
+
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
 @media (max-width: 1024.9px) {
-  header {
+  body > header {
     padding: 1rem 1.5rem;
   }
 
-  form label input {
+  header form label input {
     width: 195px;
   }
 
-  form label input:focus-visible {
+  header form label input:focus-visible {
     width: 400px;
   }
 }
 
 @media (max-width: 767.9px) {
-  header {
+  body > header {
     padding: 1rem;
   }
 
-  header button {
+  body > header button {
     background-color: transparent;
     border: none;
     outline: none;
@@ -233,18 +540,19 @@ nav ul li a:hover {
     width: 100vw;
     padding: 1rem;
     background-color: inherit;
+    z-index: 100;
   }
 
   .search-and-nav nav {
     width: 100%;
   }
 
-  .search-and-nav form {
+  header .search-and-nav form {
     width: 100%;
     margin-bottom: 1rem;
   }
 
-  .search-and-nav form label input {
+  header .search-and-nav form label input {
     width: 100%;
   }
 
@@ -277,5 +585,109 @@ nav ul li a:hover {
 
   .github-icon:not(.mobile) {
     display: none;
+  }
+
+  .main > header {
+    display: none;
+    /* margin: 0;
+    overflow-x: auto;
+    z-index: 10; */
+  }
+
+  .container {
+    flex-direction: column;
+    align-items: initial;
+    padding: 0 8px;
+  }
+
+  .container header.mobile {
+    display: flex;
+  }
+
+  .user-details {
+    margin: 1rem auto 0;
+    padding: 0 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .user-details details .status {
+    display: flex;
+  }
+
+  /* .user-details .avatar-and-status {
+    flex-direction: row;
+  } */
+
+  .avatar-and-names {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* width: 100%; */
+    margin: 0 0 1.5rem;
+  }
+
+  .avatar-and-status {
+    margin-right: 1rem;
+    /* height: 88px; */
+    /* display: flex; */
+    padding: 0;
+    /* margin: auto; */
+    min-width: 4rem;
+    width: 30%;
+    max-width: 8.5rem;
+  }
+
+  .avatar-and-status img.avatar {
+    height: auto;
+    object-fit: scale-down;
+    border-radius: 50%;
+  }
+
+  .names-container {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+  }
+
+  .status-container {
+    display: none;
+  }
+
+  .repos-container {
+    padding: 0 8px;
+    margin-top: 1rem;
+  }
+
+  .search-repos label {
+    margin-right: 0;
+  }
+  
+  .search-repos details {
+    margin-right: 0.5rem;
+  }
+
+  .search-repos .new-repo {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .search-repos {
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    /* max-width: 312px; */
+  }
+
+  .search-repos form {
+    padding: 0;
+  }
+
+  .search-repos label {
+    width: 100%;
   }
 }

@@ -49,7 +49,7 @@ let query = `{
     }
   }
   viewer {
-    login
+    login: "isaacsokari"
   }
 }`;
 
@@ -59,7 +59,7 @@ const options = {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
-    Authorization: 'bearer f377bc7b8ad40049823e0f93d76e62cd2de09e44',
+    // Authorization: 'bearer f377bc7b8ad40049823e0f93d76e62cd2de09e44',
   },
   body: JSON.stringify({ query }),
 };
