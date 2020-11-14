@@ -15,7 +15,7 @@ let query = `{
       totalCount
     }
     bio
-    repositories(privacy: PUBLIC, last: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+    repositories(privacy: PUBLIC, first: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
       edges {
         node {
           name
@@ -25,6 +25,7 @@ let query = `{
           }
           url
           updatedAt
+          pushedAt
           description
           stargazerCount
           forkCount

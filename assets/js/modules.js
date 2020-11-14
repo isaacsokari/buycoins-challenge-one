@@ -63,7 +63,7 @@ const populateRepositoryList = (repositories) => {
         description,
         forks,
         stargazerCount,
-        updatedAt,
+        pushedAt,
         url,
         primaryLanguage,
       },
@@ -99,7 +99,7 @@ const populateRepositoryList = (repositories) => {
   
               <span class="updated-at">
                 Updated <span class="relative-time">${getRelativeTime(
-                  updatedAt
+                  pushedAt
                 )}</span>
               </span>
             </div>
