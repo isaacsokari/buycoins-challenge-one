@@ -274,7 +274,7 @@ nav ul li a:hover {
 }
 
 .main header nav a svg {
-  margin-right: 4px;
+  margin-right: 8px;
   vertical-align: text-bottom;
   display: inline-block;
   fill: #24292e80;
@@ -593,7 +593,7 @@ nav ul li a:hover {
 }
 
 .repo-description small a:hover {
-  text-decoration: underline;
+  color: #0366d6;
 }
 
 .star-repo {
