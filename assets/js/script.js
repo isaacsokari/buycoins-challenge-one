@@ -15,31 +15,31 @@ let query = `{
       totalCount
     }
     bio
-    repositories(privacy: PUBLIC, last: 20) {
+    repositories(privacy: PUBLIC, last: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
       edges {
         node {
           name
           nameWithOwner
-          languages(first: 1) {
-            edges {
-              node {
-                name
-                color
-              }
-            }
-          }
-          forks {
-            totalCount
-          }
-          stargazers {
-            totalCount
-          }
           watchers {
             totalCount
           }
           url
           updatedAt
           description
+          stargazerCount
+          forkCount
+          forks {
+            totalCount
+          }
+          licenseInfo {
+            name
+            nickname
+            url
+          }
+          primaryLanguage {
+            name
+            color
+          }
         }
       }
       totalCount
@@ -59,7 +59,6 @@ let query = `{
   }
 }
 `;
-
 const url = 'https://api.github.com/graphql';
 
 const encryptedKey = 'ZjUyZmU0NjNmMDJhMDQyMWQwZmVhZGQ3NjI0ZDVjMmZkNGZkNmZkYw==';
