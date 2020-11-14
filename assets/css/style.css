@@ -581,6 +581,19 @@ nav ul li a:hover {
 .repo-description {
   margin-bottom: 8px;
   max-width: 510px;
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-description small,
+.repo-description small a {
+  color: #586069;
+  text-decoration: none;
+  margin: 0 0 4px;
+}
+
+.repo-description small a:hover {
+  text-decoration: underline;
 }
 
 .star-repo {

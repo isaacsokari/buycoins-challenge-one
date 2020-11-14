@@ -51,5 +51,8 @@ const getRelativeTime = (updatedAt) => {
   }
 };
 
-// console.log(getRelativeTime('2020-11-09T11:58:46Z'));
-// console.log(getRelativeTime('2018-09-13T00:12:25Z'));
+const formatNumber = (number) => {
+  const formattedNumber = new Intl.NumberFormat().format(number);
+
+  return formattedNumber;
+};

@@ -19,19 +19,13 @@ let query = `{
       edges {
         node {
           name
-          nameWithOwner
           watchers {
             totalCount
           }
           url
-          updatedAt
-          pushedAt
           description
           stargazerCount
           forkCount
-          forks {
-            totalCount
-          }
           licenseInfo {
             name
             nickname
@@ -41,6 +35,15 @@ let query = `{
             name
             color
           }
+          pushedAt
+          parent {
+            url
+            name
+            nameWithOwner
+            forkCount
+            stargazerCount
+          }
+          isFork
         }
       }
       totalCount
@@ -48,6 +51,7 @@ let query = `{
     status {
       emojiHTML
       emoji
+      message
     }
     bio
     createdAt
