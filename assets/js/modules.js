@@ -1,7 +1,3 @@
-// const date = new Date();
-
-// console.log(date)
-
 const setFullName = (fullname) => {
   document.getElementById('fullname').innerText = fullname.trim();
 };
@@ -56,33 +52,6 @@ const setRepoCount = (count) => {
   document.getElementById('repoCount2').innerText = count;
 };
 
-const getRelativeTime = (updatedAt) => {
-  const now = Date.now();
-  const then = Date(updatedAt);
-
-  const elapsed = now - then;
-
-  const msPerMinute = 60 * 1000;
-  const msPerHour = msPerMinute * 60;
-  const msPerDay = msPerHour * 24;
-  const msPerWeek = msPerDay * 7;
-  const msPerMonth = msPerDay * 30;
-
-  if (elapsed < msPerMinute) {
-    return Math.round(elapsed / 1000) + ' seconds ago';
-  } else if (elapsed < msPerHour) {
-    return Math.round(elapsed / msPerMinute) + ' minutes ago';
-  } else if (elapsed < msPerDay) {
-    return Math.round(elapsed / msPerHour) + ' hours ago';
-  } else if (elapsed < msPerMonth) {
-    return 'about ' + Math.round(elapsed / msPerWeek) + ' 1 week ago';
-  } else {
-    return 'on ';
-  }
-};
-
-// getRelativeTime('+2017-06-09T11:58:46Z');
-
 const populateRepositoryList = (repositories) => {
   const repoContainer = document.querySelector('.repo-list');
   let repoHTML = '';
@@ -129,7 +98,9 @@ const populateRepositoryList = (repositories) => {
                 ${stargazerCount}</span>
   
               <span class="updated-at">
-                Updated <span class="relative-time">3 days ago</span>
+                Updated <span class="relative-time">${getRelativeTime(
+                  updatedAt
+                )}</span>
               </span>
             </div>
   

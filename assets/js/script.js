@@ -59,6 +59,7 @@ let query = `{
   }
 }
 `;
+
 const url = 'https://api.github.com/graphql';
 
 const encryptedKey = 'ZjUyZmU0NjNmMDJhMDQyMWQwZmVhZGQ3NjI0ZDVjMmZkNGZkNmZkYw==';
