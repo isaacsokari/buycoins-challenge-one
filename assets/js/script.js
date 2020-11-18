@@ -15,7 +15,7 @@ let query = `{
       totalCount
     }
     bio
-    repositories(privacy: PUBLIC, first: 20, orderBy: {field: CREATED_AT, direction: DESC}) {
+    repositories(privacy: PUBLIC, first: 20, orderBy: {field: CREATED_AT, direction: DESC}, ownerAffiliations: OWNER) {
       edges {
         node {
           name
