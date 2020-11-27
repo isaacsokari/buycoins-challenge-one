@@ -22,7 +22,7 @@ const getRelativeTime = (updatedAt) => {
     return time + ' seconds ago';
   } else if (elapsed < msPerHour) {
     const time = Math.round(elapsed / msPerMinute);
-    return time + ' minutes ago';
+    return time + ` ${time > 1 ? 'minutes' : 'minute'} ago`;
   } else if (elapsed < msPerDay) {
     const time = Math.round(elapsed / msPerHour);
     return `${time} ${time > 1 ? 'hours' : 'hour'} ago`;
