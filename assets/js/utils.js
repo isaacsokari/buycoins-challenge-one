@@ -25,10 +25,10 @@ const getRelativeTime = (updatedAt) => {
     return time + ' minutes ago';
   } else if (elapsed < msPerDay) {
     const time = Math.round(elapsed / msPerHour);
-    return `${time} ${time > 1 ? 'hours' : 'hour'} ago'`;
+    return `${time} ${time > 1 ? 'hours' : 'hour'} ago`;
   } else if (elapsed < msPerMonth) {
     const time = Math.round(elapsed / msPerDay);
-    return `${time} ${time > 1 ? 'days' : 'day'} ago'`;
+    return `${time} ${time > 1 ? 'days' : 'day'} ago`;
   } else {
     return `on ${thenMonth} ${thenDay}${
       thenYear < nowYear ? ', ' + thenYear : ''
